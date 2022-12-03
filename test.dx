@@ -1,0 +1,44 @@
+// comment test and new line ignorant test
+
+// import test
+include('math')
+
+// printing test
+out(2 + 67)
+
+// module test
+out(math.cos(60))
+
+// assign test
+assign('a', "string")
+assign('b', 10)
+assign('c', 69.42)
+assign('d', 2+4j)
+assign('e', True)
+assign('f', T)
+assign('g', False)
+assign('h', F)
+assign('i', ('0', '1'))
+assign('j', ['0', '1'])
+assign('k', {'0', '1'})
+//assign('_error', "error test")
+//out(_error)
+out(a, b, c, d, e, f, g, h, i, j, k)
+
+// append test
+assign('list', [])
+append('test', list)
+out(list)
+
+// extend test
+assign('list', [])
+assign('tup1', ('0', '1', '2'))
+assign('lis1', ['0', '1', '2'])
+assign('dic1', {'0', '1', '2'})
+extend(tup1, list)
+extend(lis1, list)
+extend(dic1, list)
+out(list)
+
+// getcwd test
+out(getcwd())
