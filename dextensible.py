@@ -4,6 +4,8 @@ from typing import Union
 T = True
 F = False
 
+class FileExtensionError(Exception): pass
+
 class _main():
     def __init__(self):
         pass
@@ -31,9 +33,11 @@ class _main():
         tar.extend(objs)
 
 
+
     if __name__ != __file__:
-        #_f = input(f'{os.getcwd()} @-> ')
-        _f = 'main.dx' #test
+        _f = input(f'{os.getcwd()} @-> ')
+        #_f = 'text.dx' #test
+        if not _f.endswith('.dx'): raise FileExtensionError('Invalid file extension, file extension should be ".dx"')
         with open(_f, 'r+') as _t:
             for _i in _t:
                 if _i == '\n' or _i.startswith('//'): pass
