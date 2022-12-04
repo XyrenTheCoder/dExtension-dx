@@ -4,7 +4,6 @@ from typing import Union
 from aliases import *
 from errors import *
 
-
 class _main():
     def __init__(self):
         pass
