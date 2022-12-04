@@ -42,3 +42,19 @@ out(list)
 
 // getcwd test
 out(getcwd())
+
+// join test
+assign('a', ['0', '1', '2'])
+out(join(a, ''))
+
+// argv test
+//out(argv(1))
+
+// getname test (os.name)
+out(getname())
+
+// getos test (full os name / linux distro name)
+out(getos())
+
+// getpyver test
+out(getpyver())
