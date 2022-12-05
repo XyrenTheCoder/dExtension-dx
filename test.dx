@@ -27,7 +27,7 @@ out(a, b, c, d, e, f, g, h, i, j, k)
 
 // append test
 assign('list', [])
-append('test', list)
+append(list, 'test')
 out(list)
 
 // extend test
@@ -35,9 +35,9 @@ assign('list', [])
 assign('tup1', ('0', '1', '2'))
 assign('lis1', ['0', '1', '2'])
 assign('dic1', {'0', '1', '2'})
-extend(tup1, list)
-extend(lis1, list)
-extend(dic1, list)
+extend(list, tup1)
+extend(list, lis1)
+extend(list, dic1)
 out(list)
 
 // getcwd test
@@ -58,3 +58,29 @@ out(getos())
 
 // getpyver test
 out(getpyver())
+
+// split test
+assign('a', 'this is a test!string!btw')
+out(split(a, ' ', 1))
+out(split(a, '!', -1))
+
+// count test
+assign('a', [0, 1, 1])
+out(count(a, 1))
+
+// pop (list) test
+assign('a', [0, 1, 2, 3])
+lpop(a)
+out(a)
+lpop(a, 1)
+out(a)
+
+// pop (dict) test
+assign('a', {'a':'0', 'b':'1', 'c':'2', 'd':'3'})
+dpop(a, 'b')
+out(a)
+
+// pop (set) test
+assign('a', {0, 1, 2})
+spop(a)
+out(a)

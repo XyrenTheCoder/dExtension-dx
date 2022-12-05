@@ -1,10 +1,11 @@
-import os, sys, platform, distro, math
+import os, sys, platform, distro
 from typing import Union
 # extensions
+import math
 from aliases import *
 from errors import *
 
-class _main():
+class _general():
     def __init__(self):
         pass
     
@@ -39,18 +40,45 @@ class _main():
         print(_s)
 
     def assign(var: str, value):
-        if var.startswith('_'): raise NameError("Variable name cannot start with '_'.")
+        if var.startswith('_'):
+            raise NameError("Variable name cannot start with '_'.")
         globals()[var] = value
 
-    def append(obj: str, tar: list):
-        tar.append(obj)
-
-    def extend(objs: list, tar: Union[tuple, list, dict, set]):
-        tar.extend(objs)
-
+#class _strings():
     def join(obj, sep: str):
         return sep.join(obj)
         
+    def split(obj: str, sep: str, maxspt: int): 
+        if maxspt < -1:
+            raise ValueError('Max split value must be larger than or equal to -1.')
+        else:
+            return obj.split(sep, maxspt)
+
+#class _tuple_lists_dicts():
+    def append(tar: list, obj: str):
+        tar.append(obj)
+
+    def extend(tar: list, obj: Union[tuple, list, dict, set]):
+        tar.extend(obj)
+
+    def lpop(tar: list, index: int=None):
+        if index == None:
+            tar.pop()
+        else:
+            tar.pop(index)
+
+    def dpop(tar: dict, key):
+        tar.pop(key)
+    
+    def spop(tar: set):
+        tar.pop()
+
+    def count(tar: list, obj):
+        return tar.count(obj)
+
+    
+    
+    
 
     # python dextensible.py test.dx
     if __name__ == __file__:
@@ -59,10 +87,12 @@ class _main():
             with open(sys.argv[2], 'r+') as _t:
                 for _i in _t:
                     if _i == '\n' or _i.startswith('//'): pass
-                    else: print(_i); eval(_i)
+                    else:
+                        print(_i); eval(_i)
     else: #testing session
         with open('test.dx', 'r+') as _t:
                 for _i in _t:
                     if _i == '\n' or _i.startswith('//'): pass
-                    else: eval(_i)
+                    else:
+                        eval(_i)
 
