@@ -5,6 +5,7 @@ random thing made with Python3 by archisha69 (working in progress) <br>
 
 # content
 - `dextensible.py` main file
+- `aliases.py` and `errors.py` extensions 
 - `test.dx` test file
 
 # usage
